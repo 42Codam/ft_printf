@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_parse_type.c                                    :+:    :+:            */
+/*   ft_print_all_types.c                               :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: rbulbul <rbulbul@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/03/21 19:39:31 by rbulbul       #+#    #+#                 */
-/*   Updated: 2022/03/24 15:08:25 by rbulbul       ########   odam.nl         */
+/*   Created: 2022/03/24 09:17:10 by rbulbul       #+#    #+#                 */
+/*   Updated: 2022/03/24 15:34:43 by rbulbul       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-#include <stdio.h>
 
-int	ft_parse_type(t_print *tab, const char type, int index)
+void	ft_print_all_type(t_print *tab)
 {
-	if (type == 'c')
-		ft_print_ch(tab);
-	else if (type == 's')
-		ft_print_str(tab);
-	// else if (type == 'i' || type == 'd')
-	// 	ft_print_int(tab);
-	return (index + 1);
+	char	*new_str;
+	int		s_len;
+
+	new_str = tab->str;
+	printf("%s\n",new_str);
+	s_len = strlen(tab->str);
+	tab->tl += s_len;
 }

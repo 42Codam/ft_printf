@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   libftprint.h                                       :+:    :+:            */
+/*   libftprintf.h                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: rbulbul <rbulbul@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/14 15:53:02 by rbulbul       #+#    #+#                 */
-/*   Updated: 2022/03/23 16:31:44 by rbulbul       ########   odam.nl         */
+/*   Updated: 2022/03/24 14:57:18 by rbulbul       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINT_H
-# define LIBFTPRINT_H
+#ifndef LIBFTPRINTF_H
+# define LIBFTPRINTF_H
 
 # include <stdio.h>
 # include <stdarg.h>
@@ -22,6 +22,7 @@
 typedef struct s_print
 {
 	va_list	args;
+	char	*str;
 	int		wdt;
 	int		prc;
 	int		zero;
@@ -37,5 +38,13 @@ typedef struct s_print
 int		ft_printf(const char *format, ...);
 int		ft_parse_type(t_print *tab, const char type, int index);
 void	ft_print_ch(t_print *tab);
+void	ft_print_str(t_print *tab);
+void	ft_print_int(t_print *tab);
+void	ft_print_all_type(t_print *tab);
+char	*ft_itoa(int n);
+char	*ft_strdup(const char *s1);
+size_t	ft_strlcpy(char *dst, const char *src, size_t dssize);
+size_t	ft_strlen(const char *s);
+
 
 #endif

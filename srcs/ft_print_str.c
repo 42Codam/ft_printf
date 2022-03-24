@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_parse_type.c                                    :+:    :+:            */
+/*   ft_print_str.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: rbulbul <rbulbul@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/03/21 19:39:31 by rbulbul       #+#    #+#                 */
-/*   Updated: 2022/03/24 15:08:25 by rbulbul       ########   odam.nl         */
+/*   Created: 2022/03/23 16:57:37 by rbulbul       #+#    #+#                 */
+/*   Updated: 2022/03/24 15:29:43 by rbulbul       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+// strlen wil be used in order to add lenght to tab->tl
+// Use putchar in whileloop
+// va_arg(tab->args, char)
+// use or changed the library functions to libft
 #include "libftprintf.h"
-#include <stdio.h>
 
-int	ft_parse_type(t_print *tab, const char type, int index)
+void	ft_print_str(t_print *tab)
 {
-	if (type == 'c')
-		ft_print_ch(tab);
-	else if (type == 's')
-		ft_print_str(tab);
-	// else if (type == 'i' || type == 'd')
-	// 	ft_print_int(tab);
-	return (index + 1);
+	char	*str;
+	int		s_len;
+
+	str = va_arg(tab->args, char *);
+	tab->str = str;
+	ft_print_all_type(tab);
+	tab->tl += s_len;
 }

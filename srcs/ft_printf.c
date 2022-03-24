@@ -6,11 +6,11 @@
 /*   By: rbulbul <rbulbul@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/16 15:05:46 by rbulbul       #+#    #+#                 */
-/*   Updated: 2022/03/23 16:36:22 by rbulbul       ########   odam.nl         */
+/*   Updated: 2022/03/24 15:37:01 by rbulbul       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprint.h"
+#include "libftprintf.h"
 
 #include <stdio.h>
 #include <stdarg.h>
@@ -20,6 +20,7 @@
 t_print	*ft_initialise_tab(t_print	*tab)
 {
 	tab->wdt = 0;
+	tab->str = 0;
 	tab->prc = 0;
 	tab->zero = 0;
 	tab->pnt = 0;
@@ -62,6 +63,8 @@ int	ft_printf(const char *format, ...)
 
 int	main(void)
 {
-	printf("%d\n", ft_printf("RAMAZAN %c%c%c%c%c%c\n", 'B', 'U', 'L', 'B', 'U', 'L'));
-	printf("%d\n", printf("RAMAZAN %c%c%c%c%c%c\n", 'B', 'U', 'L', 'B', 'U', 'L'));
+	printf("%d\n", ft_printf("RAMAZAN %s\n", "Bulbul"));
+	printf("%d\n", printf("RAMAZAN %s\n", "Bulbul"));
+	printf("%d\n", ft_printf("RAMAZAN %c%c%c\n", 'B', 'U', 'L'));
+	printf("%d\n", printf("RAMAZAN %c%c%c\n", 'B', 'U', 'L'));
 }

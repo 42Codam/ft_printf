@@ -6,17 +6,17 @@
 /*   By: rbulbul <rbulbul@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/23 10:22:42 by rbulbul       #+#    #+#                 */
-/*   Updated: 2022/03/23 15:44:09 by rbulbul       ########   odam.nl         */
+/*   Updated: 2022/03/24 12:00:29 by rbulbul       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprint.h"
+#include "libftprintf.h"
 
 void	ft_print_ch(t_print *tab)
 {
 	int	c;
 
-	c = va_arg(tab->args, int);
-	tab->tl += 1;
+	c = (char)va_arg(tab->args, int);
 	write(1, &c, 1);
+	tab->tl += 1;
 }
