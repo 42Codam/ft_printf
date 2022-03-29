@@ -24,7 +24,7 @@ In 42AMSTERDAM, it is forbidden to proceed with a project using already defined 
 
 The functions of this library can be divided into three parts.
 
-The first is `Libc`의 the functions of the C standard library .
+The first is `Libc` the functions of the C standard library .
 
 The second is useful functions for dealing with strings.
 
@@ -36,7 +36,7 @@ Third, useful functions for dealing with lists.
 
 In the first part, we reimplemented the set of libc functions as defined in man. Functions declare prototypes of the same type as the original. The function name is prefixed `ft_` with .
 
-For example `strlen`은 -> `ft_strlen`.
+For example `strlen` -> `ft_strlen`.
 
 Some of the prototypes of functions that need to be reimplemented `restrict` use modifiers, but since this keyword is part of the c99 standard `restrict` , including modifiers in prototypes `-std=c99` and compiling with flags is prohibited.
 
