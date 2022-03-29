@@ -6,7 +6,7 @@
 #    By: rbulbul <rbulbul@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/03/22 18:05:22 by rbulbul       #+#    #+#                  #
-#    Updated: 2022/03/29 14:13:02 by rbulbul       ########   odam.nl          #
+#    Updated: 2022/03/29 15:05:33 by rbulbul       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,15 +32,18 @@ BLUE = \033[38;5;4m
 
 all: ${NAME}
 
-${NAME}: ${OBJS}
+${NAME}: ${OBJS} libft.a
+	@cp $(LIBFTDIR)/libft.a $(NAME)
 	@ar -rcs $@ $(OBJS)
 
 $(OBJ)/%.o: $(SRC)/%.c
 	@mkdir -p obj
-	@$(MAKE) bonus -sC $(LIBFTDIR)
 	@echo "$(GREEN)Compiling:$(NORMAL)"
 	@echo "making object file" $< "->" $@
 	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
+
+libft.a:
+	@$(MAKE) bonus -C $(LIBFTDIR)
 
 bonus:
 	@${MAKE} all

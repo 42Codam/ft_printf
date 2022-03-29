@@ -6,12 +6,12 @@
 /*   By: rbulbul <rbulbul@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/14 15:53:02 by rbulbul       #+#    #+#                 */
-/*   Updated: 2022/03/29 13:18:10 by rbulbul       ########   odam.nl         */
+/*   Updated: 2022/03/29 14:49:21 by rbulbul       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 # include "../libft/libft.h"
 # include <stdio.h>

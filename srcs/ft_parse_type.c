@@ -6,7 +6,7 @@
 /*   By: rbulbul <rbulbul@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/21 19:39:31 by rbulbul       #+#    #+#                 */
-/*   Updated: 2022/03/29 13:18:33 by rbulbul       ########   odam.nl         */
+/*   Updated: 2022/03/29 14:31:27 by rbulbul       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_parse_type(t_print *tab, const char type, int index)
 		ft_print_ch(tab);
 	else if (type == 's')
 		ft_print_str(tab);
-	// else if (type == 'i' || type == 'd')
-	// 	ft_print_int(tab);
+	else if (type == 'i' || type == 'd')
+		ft_print_int(tab);
 	return (index + 1);
 }
