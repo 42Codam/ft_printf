@@ -6,24 +6,24 @@
 #    By: rbulbul <rbulbul@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/03/22 18:05:22 by rbulbul       #+#    #+#                  #
-#    Updated: 2022/03/25 16:17:45 by rbulbul       ########   odam.nl          #
+#    Updated: 2022/03/29 14:13:02 by rbulbul       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= 	libftprintf.a
-LIBFTDIR	=	./includes/libft
-LIBFTFILE	=	libft.a
+NAME		= 	ft_printf.a
+LIBFTDIR	=	./libft
+LIBS		=	-Llibft -lft
 
 CC			= 	gcc
-CFLAGS		= 	-c -Wall -Wextra -Werror
+CFLAGS		= 	-Wall -Wextra -Werror
 AR			=	ar rcs
 RM			=	rm -rf
 
-SRC			=	src
+SRC			=	srcs
 OBJ			=	obj
 SRCS		=	$(wildcard $(SRC)/*.c)
 OBJS		=	${patsubst $(SRC)/%.c, $(OBJ)/%.o, $(SRCS)}
-INCLUDES	=	-I./includes
+INC			=	-I$(LIBFTDIR)
 
 GREEN = \033[38;5;2m
 NORMAL = \033[38;5;255m
@@ -36,19 +36,19 @@ ${NAME}: ${OBJS}
 	@ar -rcs $@ $(OBJS)
 
 $(OBJ)/%.o: $(SRC)/%.c
+	@mkdir -p obj
+	@$(MAKE) bonus -sC $(LIBFTDIR)
 	@echo "$(GREEN)Compiling:$(NORMAL)"
 	@echo "making object file" $< "->" $@
-	@$(MAKE) bonus -C ./libft
-	@cp ./libft/libft.a $(NAME)
-	@$(CC) $(CFLAGS) $(INCLUDES) $(SRCS)
+	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
 bonus:
 	@${MAKE} all
 
 clean:
+	@$(MAKE) fclean -C ./libft
 	@echo "$(RED)Removing all object files...$(NORMAL)"
-	@$(MAKE) clean -C ./libft
-	@${RM} $(SRCS:.c=.o) $(BONUS:.c=.o)
+	@$(RM) obj
 	@echo "$(GREEN)Object files succesfully removed!$(NORMAL)"
 
 fclean: clean

@@ -6,11 +6,11 @@
 /*   By: rbulbul <rbulbul@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/16 15:05:46 by rbulbul       #+#    #+#                 */
-/*   Updated: 2022/03/24 15:37:01 by rbulbul       ########   odam.nl         */
+/*   Updated: 2022/03/29 13:24:15 by rbulbul       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "../includes/ft_printf.h"
 
 #include <stdio.h>
 #include <stdarg.h>
@@ -61,10 +61,3 @@ int	ft_printf(const char *format, ...)
 	return (ret);
 }
 
-int	main(void)
-{
-	printf("%d\n", ft_printf("RAMAZAN %s\n", "Bulbul"));
-	printf("%d\n", printf("RAMAZAN %s\n", "Bulbul"));
-	printf("%d\n", ft_printf("RAMAZAN %c%c%c\n", 'B', 'U', 'L'));
-	printf("%d\n", printf("RAMAZAN %c%c%c\n", 'B', 'U', 'L'));
-}

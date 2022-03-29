@@ -6,11 +6,11 @@
 /*   By: rbulbul <rbulbul@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/21 19:39:31 by rbulbul       #+#    #+#                 */
-/*   Updated: 2022/03/24 15:08:25 by rbulbul       ########   odam.nl         */
+/*   Updated: 2022/03/29 13:18:33 by rbulbul       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "../includes/ft_printf.h"
 #include <stdio.h>
 
 int	ft_parse_type(t_print *tab, const char type, int index)

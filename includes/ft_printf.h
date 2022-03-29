@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   libftprintf.h                                      :+:    :+:            */
+/*   ft_printf.h                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: rbulbul <rbulbul@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/14 15:53:02 by rbulbul       #+#    #+#                 */
-/*   Updated: 2022/03/24 14:57:18 by rbulbul       ########   odam.nl         */
+/*   Updated: 2022/03/29 13:18:10 by rbulbul       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFTPRINTF_H
 # define LIBFTPRINTF_H
 
+# include "../libft/libft.h"
 # include <stdio.h>
 # include <stdarg.h>
 # include <string.h>
@@ -41,10 +42,6 @@ void	ft_print_ch(t_print *tab);
 void	ft_print_str(t_print *tab);
 void	ft_print_int(t_print *tab);
 void	ft_print_all_type(t_print *tab);
-char	*ft_itoa(int n);
-char	*ft_strdup(const char *s1);
-size_t	ft_strlcpy(char *dst, const char *src, size_t dssize);
-size_t	ft_strlen(const char *s);
 
 
 #endif

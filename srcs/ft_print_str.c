@@ -6,7 +6,7 @@
 /*   By: rbulbul <rbulbul@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/23 16:57:37 by rbulbul       #+#    #+#                 */
-/*   Updated: 2022/03/24 15:29:43 by rbulbul       ########   odam.nl         */
+/*   Updated: 2022/03/29 14:03:06 by rbulbul       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 // Use putchar in whileloop
 // va_arg(tab->args, char)
 // use or changed the library functions to libft
-#include "libftprintf.h"
+#include "../includes/ft_printf.h"
 
 void	ft_print_str(t_print *tab)
 {
@@ -22,7 +22,11 @@ void	ft_print_str(t_print *tab)
 	int		s_len;
 
 	str = va_arg(tab->args, char *);
-	tab->str = str;
-	ft_print_all_type(tab);
+	s_len = strlen(str);
+	while (*str)
+	{
+		write(1, str, 1);
+		str++;
+	}
 	tab->tl += s_len;
 }

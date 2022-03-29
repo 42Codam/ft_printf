@@ -6,11 +6,11 @@
 /*   By: rbulbul <rbulbul@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/23 11:06:46 by rbulbul       #+#    #+#                 */
-/*   Updated: 2022/03/24 15:01:44 by rbulbul       ########   odam.nl         */
+/*   Updated: 2022/03/29 14:03:02 by rbulbul       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "../includes/ft_printf.h"
 // strlen i normali ile degistir
 void	ft_print_int(t_print *tab)
 {
