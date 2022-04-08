@@ -6,39 +6,34 @@
 /*   By: rbulbul <rbulbul@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/16 15:05:46 by rbulbul       #+#    #+#                 */
-/*   Updated: 2022/03/29 13:24:15 by rbulbul       ########   odam.nl         */
+/*   Updated: 2022/04/08 14:11:36 by rbulbul       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-#include <stdio.h>
-#include <stdarg.h>
-#include <string.h>
-// cspdiuxX%
-
-t_print	*ft_initialise_tab(t_print	*tab)
+t_flags	*ft_initialise_tab(t_flags	*flags)
 {
-	tab->wdt = 0;
-	tab->str = 0;
-	tab->prc = 0;
-	tab->zero = 0;
-	tab->pnt = 0;
-	tab->sign = 0;
-	tab->tl = 0;
-	tab->is_zero = 0;
-	tab->dash = 0;
-	tab->sp = 0;
-	return (tab);
+	flags->width = 0;
+	flags->prc = 0;
+	flags->zero = 0;
+	flags->pnt = 0;
+	flags->sign = 0;
+	flags->total_length = 0;
+	flags->zero = 0;
+	flags->dash = 0;
+	flags->sp = 0;
+	flags->error = 0;
+	return (flags);
 }
 
 int	ft_printf(const char *format, ...)
 {
 	int		i;
 	int		ret;
-	t_print	*tab;
+	t_flags	*tab;
 
-	tab = (t_print *)malloc(sizeof(t_print));
+	tab = (t_flags *)malloc(sizeof(t_flags));
 	if (!tab)
 		return (-1);
 	ft_initialise_tab(tab);
@@ -48,16 +43,18 @@ int	ft_printf(const char *format, ...)
 	while (format[i])
 	{
 		if (format[i] == '%')
-			i = ft_parse_type(tab, format[i + 1], i + 1);
-		else
 		{
-			ret += write(1, &format[i], 1);
+			ft_parse_type(tab, format[i + 1]);
 			i++;
+			if (tab->error == -1)
+				return (-1);
 		}
+		else
+			ret += write(1, &format[i], 1);
+		i++;
 	}
 	va_end(tab->args);
-	ret += tab->tl;
+	ret += tab->total_length;
 	free(tab);
 	return (ret);
 }
-

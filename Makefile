@@ -6,17 +6,17 @@
 #    By: rbulbul <rbulbul@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/03/22 18:05:22 by rbulbul       #+#    #+#                  #
-#    Updated: 2022/03/29 15:05:33 by rbulbul       ########   odam.nl          #
+#    Updated: 2022/04/04 17:55:05 by rbulbul       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= 	ft_printf.a
+NAME		= 	libftprintf.a
 LIBFTDIR	=	./libft
 LIBS		=	-Llibft -lft
 
 CC			= 	gcc
 CFLAGS		= 	-Wall -Wextra -Werror
-AR			=	ar rcs
+AR			=	ar rc
 RM			=	rm -rf
 
 SRC			=	srcs
@@ -32,32 +32,37 @@ BLUE = \033[38;5;4m
 
 all: ${NAME}
 
-${NAME}: ${OBJS} libft.a
+${NAME}: libft.a ${OBJS}
 	@cp $(LIBFTDIR)/libft.a $(NAME)
-	@ar -rcs $@ $(OBJS)
-
-$(OBJ)/%.o: $(SRC)/%.c
-	@mkdir -p obj
-	@echo "$(GREEN)Compiling:$(NORMAL)"
-	@echo "making object file" $< "->" $@
-	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
+	@ar -rc $@ $(OBJS)
 
 libft.a:
 	@$(MAKE) bonus -C $(LIBFTDIR)
+	
+
+$(OBJ)/%.o: $(SRC)/%.c
+	@echo "$(GREEN)Compiling ft_printf object file:$(NORMAL)"
+	@echo "making object file" $< "->" $@
+	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
+
 
 bonus:
 	@${MAKE} all
 
+test: all
+	@gcc ./bin/main.c libftprintf.a -o bin/test
+	@./bin/test
+
 clean:
 	@$(MAKE) fclean -C ./libft
-	@echo "$(RED)Removing all object files...$(NORMAL)"
-	@$(RM) obj
-	@echo "$(GREEN)Object files succesfully removed!$(NORMAL)"
+	@echo "$(RED)Removing printf object files...$(NORMAL)"
+	@$(RM) obj/*.o
+	@echo "$(GREEN)Printf object files succesfully removed!$(NORMAL)"
 
 fclean: clean
-	@echo "$(RED)Removing libft.a$(NORMAL)"
+	@echo "$(RED)Removing libftprintf.a$(NORMAL)"
 	@${RM} ${NAME}
-	@echo "$(GREEN)libft.a removed!"
+	@echo "$(GREEN)libftprintf.a removed!"
 	
 re: fclean all
 

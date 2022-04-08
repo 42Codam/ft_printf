@@ -6,7 +6,7 @@
 /*   By: rbulbul <rbulbul@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/14 15:53:02 by rbulbul       #+#    #+#                 */
-/*   Updated: 2022/03/29 14:49:21 by rbulbul       ########   odam.nl         */
+/*   Updated: 2022/04/08 14:08:40 by rbulbul       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,25 +23,24 @@
 typedef struct s_print
 {
 	va_list	args;
-	char	*str;
-	int		wdt;
+	int		width;
 	int		prc;
 	int		zero;
 	int		pnt;
 	int		dash;
-	int		tl;
+	int		total_length;
 	int		sign;
 	int		is_zero;
 	int		perc;
 	int		sp;
-}t_print;
+	int		error;
+}t_flags;
 
-int		ft_printf(const char *format, ...);
-int		ft_parse_type(t_print *tab, const char type, int index);
-void	ft_print_ch(t_print *tab);
-void	ft_print_str(t_print *tab);
-void	ft_print_int(t_print *tab);
-void	ft_print_all_type(t_print *tab);
-
+int	ft_printf(const char *format, ...);
+int	ft_parse_type(t_flags *tab, const char type);
+int	ft_print_ch(t_flags *tab);
+int	ft_print_str(t_flags *tab);
+int	ft_print_int(t_flags *tab);
+int	ft_print_hex(const char type, t_flags *tab);
 
 #endif

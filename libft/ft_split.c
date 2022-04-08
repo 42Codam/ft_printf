@@ -6,7 +6,7 @@
 /*   By: rbulbul <rbulbul@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/02/27 20:29:05 by rbulbul       #+#    #+#                 */
-/*   Updated: 2022/03/20 18:26:06 by rbulbul       ########   odam.nl         */
+/*   Updated: 2022/03/23 15:59:36 by rbulbul       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,7 @@ static int	count_words(char const *s, char c)
 	while (s[i])
 	{
 		if (last == c && s[i] != c)
-		{
 			j++;
-		}
 		last = s[i];
 		i++;
 	}

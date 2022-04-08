@@ -6,7 +6,7 @@
 /*   By: rbulbul <rbulbul@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/23 16:57:37 by rbulbul       #+#    #+#                 */
-/*   Updated: 2022/03/29 14:03:06 by rbulbul       ########   odam.nl         */
+/*   Updated: 2022/04/08 14:39:20 by rbulbul       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,20 @@
 // use or changed the library functions to libft
 #include "../includes/ft_printf.h"
 
-void	ft_print_str(t_print *tab)
+int	ft_print_str(t_flags *tab)
 {
 	char	*str;
 	int		s_len;
 
 	str = va_arg(tab->args, char *);
-	s_len = strlen(str);
-	while (*str)
+	if (!str)
 	{
-		write(1, str, 1);
-		str++;
+		write(1, "(null)", 6);
+		tab->error = -1;
+		return (-1);
 	}
-	tab->tl += s_len;
+	s_len = ft_strlen(str);
+	tab->total_length += s_len;
+	write(1, str, s_len);
+	return (1);
 }

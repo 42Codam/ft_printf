@@ -6,7 +6,7 @@
 /*   By: rbulbul <rbulbul@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/04 16:23:35 by rbulbul       #+#    #+#                 */
-/*   Updated: 2022/03/20 18:26:00 by rbulbul       ########   odam.nl         */
+/*   Updated: 2022/03/23 15:58:06 by rbulbul       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	print_num(unsigned int n, int fd)
 
 	if (n > 9)
 		print_num(n / 10, fd);
-	c = (n % 10) + 48;
+	c = (n % 10) + '0';
 	write(fd, &c, 1);
 }
 

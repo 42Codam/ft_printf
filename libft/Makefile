@@ -39,7 +39,7 @@ ${NAME}: ${OBJS}
 	@$(CC) $(CFLAGS) -o $@ -c $<
 
 bonus:
-	$(MAKE) WITH_BONUS=1 all
+	@$(MAKE) WITH_BONUS=1 all
 
 clean:
 	@echo "$(RED)Removing all object files...$(NORMAL)"

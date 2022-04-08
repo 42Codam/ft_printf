@@ -6,7 +6,7 @@
 /*   By: rbulbul <rbulbul@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/01/31 13:52:27 by rbulbul       #+#    #+#                 */
-/*   Updated: 2022/02/15 14:50:49 by rbulbul       ########   odam.nl         */
+/*   Updated: 2022/03/23 16:21:15 by rbulbul       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ void	*ft_memset(void *str, int c, size_t n)
 	ptr = str;
 	while (n > 0)
 	{
-		*ptr++ = c;
+		*ptr = c;
+		ptr++;
 		n--;
 	}
 	return (str);
