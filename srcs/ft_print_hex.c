@@ -6,13 +6,13 @@
 /*   By: rbulbul <rbulbul@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/03 12:52:51 by rbulbul       #+#    #+#                 */
-/*   Updated: 2022/04/08 13:36:48 by rbulbul       ########   odam.nl         */
+/*   Updated: 2022/04/11 19:18:42 by rbulbul       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int	ft_converthexa(unsigned int nb, const char type, t_flags *tab)
+static int	ft_converthexa(unsigned long nb, const char type, t_flags *tab)
 {
 	char			c;
 
@@ -23,19 +23,19 @@ int	ft_converthexa(unsigned int nb, const char type, t_flags *tab)
 		c = nb + '0';
 	else
 	{
-		if (type == 'X')
-			c = nb + 'A' - 10;
-		else
+		if (type == 'x')
 			c = nb + 'a' - 10;
+		else
+			c = nb + 'A' - 10;
 	}
 	tab->total_length += 1;
 	return (write(1, &c, 1));
 }
 
-int	ft_print_hex(const char type, t_flags *tab)
+void	ft_print_hex(const char type, t_flags *tab)
 {
-	unsigned int	nb;
+	unsigned long	nb;
 
-	nb = va_arg(tab->args, unsigned int);
-	return (ft_converthexa(nb, type, tab));
+	nb = va_arg(tab->args, unsigned long);
+	ft_converthexa(nb, type, tab);
 }

@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_print_str.c                                     :+:    :+:            */
+/*   ft_print_ptr.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: rbulbul <rbulbul@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/03/23 16:57:37 by rbulbul       #+#    #+#                 */
-/*   Updated: 2022/04/11 19:26:37 by rbulbul       ########   odam.nl         */
+/*   Created: 2022/04/10 19:59:50 by rbulbul       #+#    #+#                 */
+/*   Updated: 2022/04/10 20:22:51 by rbulbul       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-// strlen wil be used in order to add lenght to tab->tl
-// Use putchar in whileloop
-// va_arg(tab->args, char)
-// use or changed the library functions to libft
 #include "../includes/ft_printf.h"
 
-void	ft_print_str(t_flags *tab)
+void	ft_print_ptr(t_flags *tab)
 {
-	char	*str;
-	int		str_len;
+	const char	type = 'x';
 
-	str = va_arg(tab->args, char *);
-	str_len = ft_strlen(str);
-	write(1, str, str_len);
-	tab->total_length += str_len;
+	write(1, "0x", 2);
+	tab->total_length += 2;
+	ft_print_hex(type, tab);
 }

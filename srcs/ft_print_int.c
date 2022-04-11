@@ -6,14 +6,13 @@
 /*   By: rbulbul <rbulbul@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/23 11:06:46 by rbulbul       #+#    #+#                 */
-/*   Updated: 2022/04/03 17:54:34 by rbulbul       ########   odam.nl         */
+/*   Updated: 2022/04/08 15:38:22 by rbulbul       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-// strlen i normali ile degistir
 
-int	ft_print_int(t_flags *tab)
+void	ft_print_int(t_flags *tab)
 {
 	int		nb;
 	int		nb_len;
@@ -21,14 +20,13 @@ int	ft_print_int(t_flags *tab)
 
 	nb = va_arg(tab->args, int);
 	nb_str = ft_itoa(nb);
-	if (!nb || !nb_str)
+	if (!nb_str)
 	{
-		write(1, "(null)", 1);
-		return (-1);
+		tab->error = -1;
+		return ;
 	}
 	nb_len = ft_strlen(nb_str);
 	write(1, nb_str, nb_len);
 	tab->total_length += nb_len;
 	free(nb_str);
-	return (1);
 }

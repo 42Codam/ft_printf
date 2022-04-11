@@ -6,7 +6,7 @@
 /*   By: rbulbul <rbulbul@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/16 15:05:46 by rbulbul       #+#    #+#                 */
-/*   Updated: 2022/04/08 14:11:36 by rbulbul       ########   odam.nl         */
+/*   Updated: 2022/04/08 15:38:41 by rbulbul       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,10 @@ int	ft_printf(const char *format, ...)
 			ft_parse_type(tab, format[i + 1]);
 			i++;
 			if (tab->error == -1)
+			{
+				write(1, "(null)", 1);
 				return (-1);
+			}
 		}
 		else
 			ret += write(1, &format[i], 1);

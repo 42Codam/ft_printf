@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_print_str.c                                     :+:    :+:            */
+/*   main.c                                             :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: rbulbul <rbulbul@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/03/23 16:57:37 by rbulbul       #+#    #+#                 */
-/*   Updated: 2022/04/11 19:26:37 by rbulbul       ########   odam.nl         */
+/*   Created: 2022/03/29 12:51:25 by rbulbul       #+#    #+#                 */
+/*   Updated: 2022/04/11 19:13:26 by rbulbul       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-// strlen wil be used in order to add lenght to tab->tl
-// Use putchar in whileloop
-// va_arg(tab->args, char)
-// use or changed the library functions to libft
 #include "../includes/ft_printf.h"
 
-void	ft_print_str(t_flags *tab)
+int	main(void)
 {
-	char	*str;
-	int		str_len;
+	unsigned int i;
 
-	str = va_arg(tab->args, char *);
-	str_len = ft_strlen(str);
-	write(1, str, str_len);
-	tab->total_length += str_len;
+	i = 0;
+	// Hexadecimal value
+	printf("%d\n", printf("%s", "hello"));
+	// printf("%d\n", printf("%X\n", 1515));
+	ft_printf("%p\n", (void *)&i);
+	printf("%p\n", (void *)&i);
+	// ft_printf("%d\n", ft_printf("%X\n", 1515));
+	// system("leaks test");
+	ft_printf("%%%dfg\n".i);
+	return (0);
 }
