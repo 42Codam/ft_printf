@@ -6,7 +6,7 @@
 /*   By: rbulbul <rbulbul@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/14 15:53:02 by rbulbul       #+#    #+#                 */
-/*   Updated: 2022/04/08 14:08:40 by rbulbul       ########   odam.nl         */
+/*   Updated: 2022/04/10 20:07:14 by rbulbul       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,13 @@ typedef struct s_print
 	int		error;
 }t_flags;
 
-int	ft_printf(const char *format, ...);
-int	ft_parse_type(t_flags *tab, const char type);
-int	ft_print_ch(t_flags *tab);
-int	ft_print_str(t_flags *tab);
-int	ft_print_int(t_flags *tab);
-int	ft_print_hex(const char type, t_flags *tab);
+int		ft_printf(const char *format, ...);
+void	ft_parse_type(t_flags *tab, const char type);
+void	ft_print_ch(t_flags *tab);
+void	ft_print_str(t_flags *tab);
+void	ft_print_int(t_flags *tab);
+void	ft_print_hex(const char type, t_flags *tab);
+void	ft_print_unint(t_flags *tab);
+void	ft_print_ptr(t_flags *tab);
 
 #endif
