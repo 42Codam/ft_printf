@@ -6,7 +6,7 @@
 /*   By: rbulbul <rbulbul@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/21 19:39:31 by rbulbul       #+#    #+#                 */
-/*   Updated: 2022/04/11 18:59:42 by rbulbul       ########   odam.nl         */
+/*   Updated: 2022/04/12 02:21:48 by rbulbul       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,6 @@ void	ft_parse_type(t_flags *tab, const char type)
 		tab->total_length += 1;
 		write(1, &type, 1);
 	}
+	else
+		tab->error = -1;
 }

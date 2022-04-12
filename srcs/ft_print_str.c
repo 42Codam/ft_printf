@@ -6,7 +6,7 @@
 /*   By: rbulbul <rbulbul@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/03/23 16:57:37 by rbulbul       #+#    #+#                 */
-/*   Updated: 2022/04/11 19:26:37 by rbulbul       ########   odam.nl         */
+/*   Updated: 2022/04/12 02:09:26 by rbulbul       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,12 @@ void	ft_print_str(t_flags *tab)
 	int		str_len;
 
 	str = va_arg(tab->args, char *);
+	if (str == NULL)
+	{
+		write(1, "(null)", 6);
+		tab->total_length = 6;
+		return ;
+	}
 	str_len = ft_strlen(str);
 	write(1, str, str_len);
 	tab->total_length += str_len;

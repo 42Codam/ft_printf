@@ -6,7 +6,7 @@
 #    By: rbulbul <rbulbul@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/03/22 18:05:22 by rbulbul       #+#    #+#                  #
-#    Updated: 2022/04/04 17:55:05 by rbulbul       ########   odam.nl          #
+#    Updated: 2022/04/12 02:27:59 by rbulbul       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,7 @@ bonus:
 	@${MAKE} all
 
 test: all
-	@gcc ./bin/main.c libftprintf.a -o bin/test
+	@gcc $(CFLAGS) ./bin/main.c libftprintf.a -o bin/test
 	@./bin/test
 
 clean:
